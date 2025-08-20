@@ -217,6 +217,113 @@
             opacity: 0.3;
         }
 
+        /* Loading Animation */
+        .loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .spinner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                transparent 45deg,
+                white 45deg,
+                white 90deg,
+                transparent 90deg,
+                transparent 135deg,
+                white 135deg,
+                white 180deg,
+                transparent 180deg,
+                transparent 225deg,
+                white 225deg,
+                white 270deg,
+                transparent 270deg,
+                transparent 315deg,
+                white 315deg,
+                white 360deg
+            );
+            border-radius: 50%;
+            animation: spin 2s linear infinite;
+        }
+
+        .loader-text {
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Logo Styles */
+        .logo {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        .logo-icon {
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(
+                from 0deg,
+                #feca57 0deg,
+                #feca57 45deg,
+                transparent 45deg,
+                transparent 90deg,
+                #feca57 90deg,
+                #feca57 135deg,
+                transparent 135deg,
+                transparent 180deg,
+                #feca57 180deg,
+                #feca57 225deg,
+                transparent 225deg,
+                transparent 270deg,
+                #feca57 270deg,
+                #feca57 315deg,
+                transparent 315deg,
+                transparent 360deg
+            );
+            border-radius: 50%;
+            animation: logoSpin 10s linear infinite;
+        }
+
         @keyframes slideInDown {
             from { opacity: 0; transform: translateY(-100px); }
             to { opacity: 1; transform: translateY(0); }
@@ -275,6 +382,16 @@
             100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
         }
 
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes logoSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5em; }
             .section h2 { font-size: 2em; }
@@ -284,6 +401,17 @@
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loader-overlay" id="loader">
+        <div class="spinner"></div>
+        <div class="loader-text">Loading Banking Crisis Analysis...</div>
+    </div>
+
+    <!-- Logo -->
+    <div class="logo">
+        <div class="logo-icon"></div>
+    </div>
+
     <div class="floating-elements">
         <div class="floating-coin" style="left: 10%; animation-delay: 0s;"></div>
         <div class="floating-coin" style="left: 20%; animation-delay: 2s;"></div>
@@ -356,6 +484,13 @@
     </div>
 
     <script>
+        // Loading screen
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 3000); // Show loader for 3 seconds
+        });
+
         // Add scroll animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {

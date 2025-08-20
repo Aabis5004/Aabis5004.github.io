@@ -14,7 +14,7 @@
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a4b3a 0%, #2d5a3d 50%, #1e3c2a 100%);
             color: white;
             overflow-x: hidden;
         }
@@ -28,20 +28,34 @@
         .hero {
             text-align: center;
             padding: 100px 0;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.4);
             margin-bottom: 50px;
             border-radius: 20px;
             animation: slideInDown 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(46, 204, 113, 0.1), transparent);
+            animation: sweep 4s linear infinite;
         }
 
         .hero h1 {
             font-size: 3.5em;
             margin-bottom: 20px;
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            background: linear-gradient(45deg, #2ecc71, #27ae60, #16a085);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: pulse 2s infinite;
+            text-shadow: 0 0 30px rgba(46, 204, 113, 0.5);
         }
 
         .hero .subtitle {
@@ -69,8 +83,9 @@
         .section h2 {
             font-size: 2.5em;
             margin-bottom: 20px;
-            color: #feca57;
+            color: #2ecc71;
             position: relative;
+            animation: textGlow 3s ease-in-out infinite;
         }
 
         .section h2::after {
@@ -78,18 +93,19 @@
             display: block;
             width: 50px;
             height: 4px;
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
             margin-top: 10px;
             animation: expandWidth 2s ease-out;
         }
 
         .highlight {
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
             padding: 2px 8px;
             border-radius: 5px;
             font-weight: bold;
             color: white;
             animation: glow 2s ease-in-out infinite alternate;
+            box-shadow: 0 0 20px rgba(46, 204, 113, 0.3);
         }
 
         .bank-vs-stable {
@@ -109,13 +125,15 @@
         }
 
         .bank-card {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
             animation: shake 0.5s ease-in-out infinite alternate;
+            box-shadow: 0 0 30px rgba(231, 76, 60, 0.3);
         }
 
         .stable-card {
-            background: linear-gradient(135deg, #48cae4, #023e8a);
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
             animation: float 3s ease-in-out infinite;
+            box-shadow: 0 0 30px rgba(46, 204, 113, 0.3);
         }
 
         .bank-card:hover, .stable-card:hover {
@@ -138,7 +156,7 @@
             padding: 10px;
             background: rgba(255,255,255,0.1);
             border-radius: 10px;
-            border-left: 4px solid #feca57;
+            border-left: 4px solid #2ecc71;
             animation: slideInLeft 0.8s ease-out;
             transition: transform 0.3s ease;
         }
@@ -164,7 +182,7 @@
             left: -40px;
             top: 50%;
             transform: translateY(-50%);
-            background: #ff6b6b;
+            background: #e74c3c;
             color: white;
             width: 30px;
             height: 30px;
@@ -179,11 +197,13 @@
         .conclusion {
             text-align: center;
             font-size: 1.3em;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #1a4b3a, #2d5a3d);
             padding: 50px;
             border-radius: 20px;
             position: relative;
             overflow: hidden;
+            border: 2px solid #2ecc71;
+            box-shadow: 0 0 50px rgba(46, 204, 113, 0.2);
         }
 
         .conclusion::before {
@@ -193,7 +213,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            background: linear-gradient(45deg, transparent, rgba(46, 204, 113, 0.1), transparent);
             animation: sweep 3s linear infinite;
         }
 
@@ -211,7 +231,7 @@
             position: absolute;
             width: 50px;
             height: 50px;
-            background: linear-gradient(45deg, #feca57, #ff9ff3);
+            background: linear-gradient(45deg, #2ecc71, #ff9ff3);
             border-radius: 50%;
             animation: floatingCoin 10s linear infinite;
             opacity: 0.3;
@@ -224,7 +244,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a4b3a 0%, #2d5a3d 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -256,20 +276,20 @@
                 from 0deg,
                 transparent 0deg,
                 transparent 45deg,
-                white 45deg,
-                white 90deg,
+                #2ecc71 45deg,
+                #2ecc71 90deg,
                 transparent 90deg,
                 transparent 135deg,
-                white 135deg,
-                white 180deg,
+                #2ecc71 135deg,
+                #2ecc71 180deg,
                 transparent 180deg,
                 transparent 225deg,
-                white 225deg,
-                white 270deg,
+                #2ecc71 225deg,
+                #2ecc71 270deg,
                 transparent 270deg,
                 transparent 315deg,
-                white 315deg,
-                white 360deg
+                #2ecc71 315deg,
+                #2ecc71 360deg
             );
             border-radius: 50%;
             animation: spin 2s linear infinite;
@@ -303,26 +323,52 @@
             height: 100%;
             background: conic-gradient(
                 from 0deg,
-                #feca57 0deg,
-                #feca57 45deg,
+                #2ecc71 0deg,
+                #2ecc71 45deg,
                 transparent 45deg,
                 transparent 90deg,
-                #feca57 90deg,
-                #feca57 135deg,
+                #2ecc71 90deg,
+                #2ecc71 135deg,
                 transparent 135deg,
                 transparent 180deg,
-                #feca57 180deg,
-                #feca57 225deg,
+                #2ecc71 180deg,
+                #2ecc71 225deg,
                 transparent 225deg,
                 transparent 270deg,
-                #feca57 270deg,
-                #feca57 315deg,
+                #2ecc71 270deg,
+                #2ecc71 315deg,
                 transparent 315deg,
                 transparent 360deg
             );
             border-radius: 50%;
             animation: logoSpin 10s linear infinite;
+            box-shadow: 0 0 20px rgba(46, 204, 113, 0.5);
         }
+
+        /* Hero Image Section */
+        .hero-image {
+            width: 300px;
+            height: 200px;
+            margin: 20px auto;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            border: 2px dashed #2ecc71;
+            animation: imagePulse 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image::before {
+            content: '📊 Banking vs Crypto Analysis';
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        /* New Animations */
 
         @keyframes slideInDown {
             from { opacity: 0; transform: translateY(-100px); }
@@ -345,8 +391,8 @@
         }
 
         @keyframes glow {
-            from { box-shadow: 0 0 20px rgba(254, 202, 87, 0.5); }
-            to { box-shadow: 0 0 30px rgba(254, 202, 87, 0.8); }
+            from { box-shadow: 0 0 20px rgba(46, 204, 113, 0.5); }
+            to { box-shadow: 0 0 30px rgba(46, 204, 113, 0.8); }
         }
 
         @keyframes shake {
@@ -392,6 +438,16 @@
             100% { transform: rotate(360deg); }
         }
 
+        @keyframes textGlow {
+            0%, 100% { text-shadow: 0 0 20px rgba(46, 204, 113, 0.5); }
+            50% { text-shadow: 0 0 40px rgba(46, 204, 113, 0.8), 0 0 60px rgba(46, 204, 113, 0.3); }
+        }
+
+        @keyframes imagePulse {
+            0%, 100% { transform: scale(1); border-color: #2ecc71; }
+            50% { transform: scale(1.02); border-color: #27ae60; }
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5em; }
             .section h2 { font-size: 2em; }
@@ -424,6 +480,10 @@
         <div class="hero">
             <h1>The Banking System's Existential Crisis</h1>
             <div class="subtitle">Why Stablecoins Have Them Shaking</div>
+            
+            <!-- Hero Image Placeholder -->
+            <div class="hero-image"></div>
+            
             <p><span class="highlight">I told you this day would come.</span> Banks are finally admitting what we've known all along - stablecoins represent an existential threat to their outdated business model.</p>
         </div>
 
